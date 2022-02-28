@@ -1,8 +1,11 @@
 import React from 'react';
+import styles from './styles.less';
 
 const Page = () => {
   return (
-    <p>My Page Component</p>
+    <div className={styles.fancy}>
+      <p>My Page Component</p>
+    </div>
   )
 }
 
