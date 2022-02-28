@@ -1,9 +1,10 @@
 import './App.css';
-import { Page } from '@mycompany/client-lib';
+import { CONSTANT, Page } from '@mycompany/client-lib';
 
 function App() {
   return (
     <div className="App">
+      <p>{CONSTANT.PI}</p>
       <Page />
     </div>
   );

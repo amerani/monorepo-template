@@ -1,5 +1,7 @@
 import { babel } from '@rollup/plugin-babel';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import external from 'rollup-plugin-peer-deps-external';
 
 import pkg from './package.json';
 
@@ -12,11 +14,17 @@ const config = {
   output: [
     {
       file: pkg.module,
-      format: 'esm'
+      format: 'esm',
+      sourcemap: true
     }
   ],
   plugins: [
-    nodeResolve({ extensions }),
+    external(),
+    resolve({ 
+      browser: true,
+      extensions 
+    }),
+    commonjs(),
     babel({ 
       extensions,
       babelHelpers: 'bundled',
@@ -25,6 +33,8 @@ const config = {
   ],
   external: [
     'react',
+    'react-dom',
+    'prop-types'
   ]
 };
 
