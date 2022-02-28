@@ -1,0 +1,38 @@
+{
+  "name": "@mycompany/ui-lib",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Alek Merani <alekmerani@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "dist/ui-lib.js",
+  "module": "dist/index.module.js",
+  "types": "dist/types/index.d.ts",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "typecheck:watch": "npm run type-check -- --watch",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "rollup -c",
+    "build": "npm run build:types && npm run build:js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-object-rest-spread": "^7.17.3",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@rollup/plugin-babel": "^5.3.1",
+    "rollup": "^2.68.0",
+    "typescript": "^4.5.5"
+  }
+}
