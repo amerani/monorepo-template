@@ -1,4 +1,6 @@
 import { babel } from '@rollup/plugin-babel';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+
 import pkg from './package.json';
 
 const extensions = [
@@ -10,15 +12,19 @@ const config = {
   output: [
     {
       file: pkg.module,
-      format: 'es'
+      format: 'esm'
     }
   ],
   plugins: [
+    nodeResolve({ extensions }),
     babel({ 
       extensions,
       babelHelpers: 'bundled',
       include: ['src/**/*'],
-    })
+    }),
+  ],
+  external: [
+    'react',
   ]
 };
 

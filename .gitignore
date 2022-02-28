@@ -1,4 +1,8 @@
 *-debug.log
 node_modules
-packages/*/dist
-packages/*/node_modules
+client/**/dist
+server/**/dist
+shared/**/dist
+client/**/node_modules
+server/**/node_modules
+shared/**/node_modules
